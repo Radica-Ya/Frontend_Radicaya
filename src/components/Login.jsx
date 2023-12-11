@@ -1,12 +1,35 @@
 import {useForm} from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import '../css/index.css';
-
-const Login = () =>{
+import { loginUsers } from "../lib/Api";
+import { toast } from "react-toastify";
+/*const Login = () =>{
     const { register, handleSubmit, formState:{errors},} = useForm()
 
     const onSubmit = handleSubmit((data) =>{
         console.log(data)
+    })
+*/
+const Login = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: {errors},
+    } = useForm()
+
+    const redireccion = useNavigate();
+
+    const onSubmit = handleSubmit(async (values) =>{
+        try{
+            const submit = await loginUsers(values)
+
+            if (submit) {
+                redireccion("/menu");
+            }
+        } catch (error) {
+            console.log("Se produjo un error al iniciar sesion", error );
+            toast.error('Error al ingresar');
+        }
     })
 
     return <div className="container" >

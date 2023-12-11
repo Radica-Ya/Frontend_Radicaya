@@ -6,3 +6,23 @@ export const registerUsers = async (values) => {
     const response = await axios.post(`${url_backend}/registro`, values);
     return response.data;
 };
+
+/*export const loginUsers = async (values) => {
+    const response = await axios.get(`${url_backend}/login`, values);
+    return response.data;
+};*/
+
+/*import axios from 'axios';
+
+export const loginUsers = async (values) => {
+    try {
+        const response = await axios.post(`${url_backend}/login`, values, {
+            withCredentials: true, // Asegúrate de enviar las credenciales
+        });
+        return response.data;
+    } catch (error) {
+        console.error('Error en la solicitud de inicio de sesión:', error);
+        throw error;
+    }
+};
+*/

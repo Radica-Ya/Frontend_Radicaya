@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import "../css/index.css"
 import { registerUsers } from "../lib/Api"
+import { toast } from "react-toastify"
 
 const Formulario = () => {
     const {
@@ -18,12 +19,14 @@ const Formulario = () => {
             const submit = await registerUsers(values)
             
             if (submit) {
-                redireccion("/login")
+                toast.success('Registro Exitoso');
+                redireccion("/login");
             }
 
             // Se guarda informacion, faltan alertas 
         } catch (error) {
             console.log("Se produjo un error al registrar el usuario", error);
+            toast.error('Error al registrar el Usuario');
         }
     })
 
