@@ -7,10 +7,10 @@ export const registerUsers = async (values) => {
     return response.data;
 };
 
-/*export const loginUsers = async (values) => {
+export const loginUsers = async (values) => {
     const response = await axios.get(`${url_backend}/login`, values);
     return response.data;
-};*/
+};
 
 /*import axios from 'axios';
 
