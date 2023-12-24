@@ -36,6 +36,9 @@ const MenuPrincipal = () => {
             <li>
               <Link to="/notificaciones">Notificaciones</Link>
             </li>
+            <li>
+              <Link to="/user">Usuarios</Link>
+            </li>
           </ul>
         </form>
       </div>

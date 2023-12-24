@@ -12,6 +12,10 @@ export const loginUsers = async (values) => {
     return response.data;
 };
 
+export const ObtenerUsuarios = async (values) => {
+    const response = await axios.get(`${url_backend}/user`, values);
+    return response.data;
+};
 /*import axios from 'axios';
 
 export const loginUsers = async (values) => {
