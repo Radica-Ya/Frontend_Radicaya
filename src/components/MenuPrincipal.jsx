@@ -3,6 +3,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../autentication/AuthContext';
 import '../css/index.css';
 
 const MenuPrincipal = () => {
@@ -12,6 +13,7 @@ const MenuPrincipal = () => {
     // Puedes manejar la lógica del formulario aquí si es necesario
     console.log('Datos del formulario:', data);
   };
+
 
   return (
     <div className="container2">

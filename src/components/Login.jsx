@@ -3,13 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import '../css/index.css';
 import { loginUsers } from "../lib/Api";
 import { toast } from "react-toastify";
-/*const Login = () =>{
-    const { register, handleSubmit, formState:{errors},} = useForm()
 
-    const onSubmit = handleSubmit((data) =>{
-        console.log(data)
-    })
-*/
 const Login = () => {
     const {
         register,
@@ -24,13 +18,15 @@ const Login = () => {
             const submit = await loginUsers(values)
 
             if (submit) {
+                toast.success('Ingreso Exitoso');
                 redireccion("/menu");
             }
         } catch (error) {
             console.log("Se produjo un error al iniciar sesion", error );
             toast.error('Error al ingresar');
         }
-    })
+
+    });
 
     return <div className="container" >
         <h2>Iniciar Sesión</h2>

@@ -8,7 +8,7 @@ export const registerUsers = async (values) => {
 };
 
 export const loginUsers = async (values) => {
-    const response = await axios.get(`${url_backend}/login`, values);
+    const response = await axios.post(`${url_backend}/login`, values);
     return response.data;
 };
 
