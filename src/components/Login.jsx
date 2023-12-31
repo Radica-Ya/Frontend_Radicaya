@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import '../css/index.css';
 import { loginUsers } from "../lib/Api";
 import { toast } from "react-toastify";
+import { useAuth } from "../autentication/AuthContext";
 
 const Login = () => {
     const {
@@ -12,12 +13,14 @@ const Login = () => {
     } = useForm()
 
     const redireccion = useNavigate();
+    const { login } = useAuth();
 
     const onSubmit = handleSubmit(async (values) =>{
         try{
             const submit = await loginUsers(values)
 
             if (submit) {
+                login(submit.dataUser)
                 toast.success('Ingreso Exitoso');
                 redireccion("/menu");
             }

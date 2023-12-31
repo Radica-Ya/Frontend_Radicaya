@@ -9,6 +9,10 @@ import '../css/index.css';
 const MenuPrincipal = () => {
   const { handleSubmit } = useForm();
 
+  const { isAuthenticated, user, logout } = useAuth();
+
+  console.log(user);
+
   const onSubmit = (data) => {
     // Puedes manejar la lógica del formulario aquí si es necesario
     console.log('Datos del formulario:', data);
@@ -18,7 +22,7 @@ const MenuPrincipal = () => {
   return (
     <div className="container2">
       <div className="titulo">
-        <h1>Radicaya</h1>
+        <h1>{user.nombre}</h1>
       </div>
       <div className="menu-container">
         <form onSubmit={handleSubmit(onSubmit)}>
