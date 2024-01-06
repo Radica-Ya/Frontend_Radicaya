@@ -25,7 +25,7 @@ const Login = () => {
                 redireccion("/menu");
             }
         } catch (error) {
-            console.log("Se produjo un error al iniciar sesion", error );
+            console.log("Se produjo un error al iniciar sesion", dataUser, error );
             toast.error('Error al ingresar');
         }
 

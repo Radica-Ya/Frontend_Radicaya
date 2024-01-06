@@ -22,13 +22,14 @@ const MenuPrincipal = () => {
   return (
     <div className="container2">
       <div className="titulo">
-        <h1>{user.nombre}</h1>
+        <h1>Radicaya</h1>
+        <h2>{user.nombre}</h2>
       </div>
       <div className="menu-container">
         <form onSubmit={handleSubmit(onSubmit)}>
           <ul>
             <li>
-              <Link to="/radicar-documento">Radicar Documento</Link>
+              <Link to="/formulario">Radicar Documento</Link>
             </li>
             <li>
               <Link to="/verificar-estado">Verificar Estado</Link>

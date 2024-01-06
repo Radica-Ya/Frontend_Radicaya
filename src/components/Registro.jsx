@@ -34,7 +34,7 @@ const Formulario = () => {
         <div className="container">
             <h2>Formulario de Registro</h2>
             <form className="form" onSubmit={onSubmit}>
-                <label htmlFor="">Nombre</label>
+                <label htmlFor="nombre">Nombre</label>
                 <input
                     type="text"
                     {...register("nombre", {

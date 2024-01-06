@@ -16,6 +16,10 @@ export const ObtenerUsuarios = async (values) => {
     const response = await axios.get(`${url_backend}/user`, values);
     return response.data;
 };
+
+export const registerDocument = async (values) => {
+    const response = await axios.post(`${url_backend}/formulario`, values);
+}
 /*import axios from 'axios';
 
 export const loginUsers = async (values) => {
