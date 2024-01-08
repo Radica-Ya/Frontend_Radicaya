@@ -128,9 +128,8 @@ const Formulario = () => {
         )}
 
 <button className="boton1" type="submit">Radicar</button>
-<button className="boton1" type="button" onClick={() => alert("Implementa tu lógica de volver aquí")}>
-  Volver
-</button>
+<br />
+<button className="boton1" onClick={() => redireccion("/menu")}>Volver</button>
 
       </form>
       </div>  

@@ -35,16 +35,16 @@ const Login = () => {
         <h2>Iniciar Sesión</h2>
         <form className="form" onSubmit={onSubmit} >
 
-            <label htmlFor="nombre">Usuario</label>
-            <input type="text"
-            {...register("nombre", {
+            <label htmlFor="email">Correo</label>
+            <input type="email"
+            {...register("email", {
                 required: {
                     value: true,
-                    message: "El usuario es requerido"
+                    message: "El Correo es requerido"
                 },
             }) } />
             {
-                errors.nombre && <span>{errors.nombre.message}</span>
+                errors.nombre && <span>{errors.email.message}</span>
             }
 
             <label htmlFor="contrasena">Contraseña</label>
