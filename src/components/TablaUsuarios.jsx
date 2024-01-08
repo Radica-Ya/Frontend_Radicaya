@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { ObtenerUsuarios } from "../lib/Api";
-import { Link } from 'react-router-dom';
 import "../css/index.css";
+import { Link, useNavigate } from "react-router-dom"
 
 
 
 const UserTable = () => {
+
     const [users, setUsers] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() =>{
         const fetchData = async () =>{
@@ -16,7 +18,7 @@ const UserTable = () => {
                 setUsers(usersData);
             } catch (error) {
                 console.log("se produjo un error al obtener los usuarios");
-                console.error('Error al obtener el los usuarios');
+                console.error('Error al obtener el los usuarios', error);
             }
         };
 
@@ -45,6 +47,7 @@ const UserTable = () => {
           ))}
         </tbody>
       </table>
+      <button className="boton1" onClick={() => navigate("/menu")}>Volver</button>
     </div>
   );
 };

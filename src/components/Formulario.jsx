@@ -6,6 +6,8 @@ import { registerDocument } from "../lib/Api";
 import {toast} from "react-toastify";
 import { useAuth } from '../autentication/AuthContext';
 import { format } from "date-fns";
+import DatePicker from "react-datepicker";  // Importar react-datepicker
+import "react-datepicker/dist/react-datepicker.css"; 
 
 
 const Formulario = () => {
@@ -27,22 +29,23 @@ const Formulario = () => {
       formData.append("dependencia", values.dependencia);
       formData.append("asunto", values.asunto);
       formData.append("documentoPDF", values.documentoPDF[0]);
-  
+
       const submit = await registerDocument(formData);
       
-      const formattedDate = format(new Date(values.fechaRadicacion), "yyyy-MM-dd");
-      formData.append("fechaRadicacion", formattedDate); //combierte el formato de fecha que se ingrese en el formato que requiere Mysql
+      /*const formattedDate = format(new Date(values.fechaRadicacion), "yyyy-MM-dd");
+      formData.append("fechaRadicacion", formattedDate); //combierte el formato de fecha que se ingrese en el formato que requiere Mysql*/
   
       if (submit) {
-        const data = await response.json();
+        
         toast.success('Documento Registrado Exitosamente');
         redireccion("/menu");
       } else {
+        console.log("algo salio mal", errors);
         toast.error('Error al registrar su solicitud');
       }
     } catch (error) {
       console.log("Se produjo un error al registrar la solicitud", error);
-      toast.error('Error al registrar su solicitud');
+      toast.error('Algo salio mal, estamos en el catch');
     }
   });
   
@@ -64,7 +67,7 @@ const Formulario = () => {
           })}
         />
         {errors.nombre && (
-          <span>{errors.nombreUsuario.message}</span>
+          <span>{errors.nombre.message}</span>
         )}
          
          <label className="titulo1" htmlFor="dependencia">Dependencia</label>
@@ -83,19 +86,19 @@ const Formulario = () => {
         )}
 
         <label className="titulo1" htmlFor="fechaRadicacion">Fecha de Radicación</label>
-        <input className="input1"
-          type="text"
-          {...register("fechaRadicacion", {
-            required: {
-              value: true,
-              message: "La fecha de solicitud es requerida",
-            },
-          })}
-        />
-        {errors.fechaSolicitud && (
-          <span>{errors.fechaSolicitud.message}</span>
-        )}
-
+        <DatePicker
+            className="input1" // Puedes personalizar los estilos según tus necesidades
+            {...register("fechaRadicacion", {
+              required: {
+                value: true,
+                message: "La fecha de solicitud es requerida",
+              },
+            })}
+            selected={new Date()} // Puedes configurar la fecha inicial si es necesario
+          />
+          {errors.fechaRadicacion && (
+            <span>{errors.fechaRadicacion.message}</span>
+          )}
         <label className="titulo1" htmlFor="asunto">Asunto</label>
         <textarea className="textarea1"
           {...register("asunto", {
