@@ -52,8 +52,7 @@ const Formulario = () => {
 
   return (
     <div className="container1">
-      <h2 className="titulo1">Solicitud de Documento</h2>
-      <h2 className="titulo">{user.nombre}</h2>
+      <h2 className="titulo2">{user.nombre}: Radica tu solicitud</h2>
       <div className="containerf">
       <form className="form1" onSubmit={onSubmit}>
         <label className="titulo1" htmlFor="nombre">Nombre de Usuario</label>
@@ -68,7 +67,7 @@ const Formulario = () => {
         />
         {errors.nombre && (
           <span>{errors.nombre.message}</span>
-        )}
+        )} <br />
          
          <label className="titulo1" htmlFor="dependencia">Dependencia</label>
          <select className="select1" {...register("dependencia", { required: true })}>
@@ -83,7 +82,7 @@ const Formulario = () => {
         </select>
         {errors.dependenciaResponsable && (
             <span>{errors.dependenciaResponsable.message}</span>
-        )}
+        )} <br />
 
         <label className="titulo1" htmlFor="fechaRadicacion">Fecha de Radicación</label>
         <DatePicker
@@ -98,7 +97,7 @@ const Formulario = () => {
           />
           {errors.fechaRadicacion && (
             <span>{errors.fechaRadicacion.message}</span>
-          )}
+          )} <br />
         <label className="titulo1" htmlFor="asunto">Asunto</label>
         <textarea className="textarea1"
           {...register("asunto", {
@@ -110,7 +109,7 @@ const Formulario = () => {
         />
         {errors.descripcion && (
           <span>{errors.asunto.message}</span>
-        )}
+        )} <br />
 
         <label className="titulo1" htmlFor="documentoPDF">Adjuntar Documento (PDF)</label>
         <input className="input1"
@@ -125,7 +124,7 @@ const Formulario = () => {
         />
         {errors.adjuntarDocumento && (
           <span>{errors.adjuntarDocumento.message}</span>
-        )}
+        )} <br /><br />
 
 <button className="boton1" type="submit">Radicar</button>
 <br />

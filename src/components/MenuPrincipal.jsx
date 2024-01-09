@@ -23,7 +23,7 @@ const MenuPrincipal = () => {
     <div className="container2">
       <div className="titulo">
         <h1>Radicaya</h1>
-        <h2>{user.nombre}</h2>
+        <h2>Hola: {user.nombre}</h2>
       </div>
       <div className="menu-container">
         <form onSubmit={handleSubmit(onSubmit)}>
