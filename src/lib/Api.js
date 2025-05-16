@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const url_backend = 'http://localhost:3000';
 
@@ -18,19 +19,64 @@ export const ObtenerUsuarios = async (values) => {
 };
 
 export const registerDocument = async (values) => {
-    const response = await axios.post(`${url_backend}/formulario`, values);
-}
-/*import axios from 'axios';
+    const response = await axios.post(`${url_backend}/documents`, values, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
 
-export const loginUsers = async (values) => {
+    return response.data;
+}
+
+
+export const updateDocument = async (data) => {
+    const response = await axios.post(`${url_backend}/documents-edit`, data, {
+        headers: {
+            "Content-Type": "multipart/form-data",
+        },
+    });
+
+    return response.data;
+}
+
+export const listDocumentsUser = async (id) => {
+    const response = await axios.get(`${url_backend}/documents-user/${id}`,);
+
+    return response.data;
+}
+
+export const listDocuments = async () => {
+    const response = await axios.get(`${url_backend}/list-documents`,);
+
+    return response.data;
+}
+
+export const listUsers = async () => {
+    const response = await axios.get(`${url_backend}/list-users`,);
+
+    return response.data;
+}
+
+export const responseRequest = async (data) => {
+    const response = await axios.post(`${url_backend}/response-request`, data);
+
+    return response.data;
+}
+
+
+export const downloadDocument = async (archivo) => {
+    const encodedFileName = encodeURIComponent(archivo);
+    const url = `${url_backend}/download/${encodedFileName}`;
+
     try {
-        const response = await axios.post(`${url_backend}/login`, values, {
-            withCredentials: true, // Asegúrate de enviar las credenciales
-        });
-        return response.data;
+        const response = await fetch(url, { method: 'HEAD' });
+        if (response.ok) {
+            window.open(url, '_blank');
+        } else {
+            toast.error("El archivo no existe o no se puede descargar.", { theme: "colored" })
+        }
     } catch (error) {
-        console.error('Error en la solicitud de inicio de sesión:', error);
-        throw error;
+        console.error('Error verificando el archivo:', error);
+        toast.error("Error al intentar descargar el archivo.", { theme: "colored" })
     }
 };
-*/

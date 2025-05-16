@@ -1,13 +1,8 @@
-
-import { AuthProvider } from "./autentication/AuthContext"
 import Pages from "./pages/Pages"
+import "../src/css/index.css"
 
 function App() {
-    return (
-        <AuthProvider>
-            <Pages/>
-        </AuthProvider>
-    )
+    return <Pages />
 }
 
 export default App
