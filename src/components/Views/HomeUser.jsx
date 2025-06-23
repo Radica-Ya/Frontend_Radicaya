@@ -75,8 +75,8 @@ const HomeUser = () => {
                     <h3 className="text-white">Solicitudes</h3>
                 </div>
                 <div className="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-striped table-hover">
+                    <div className="table-responsive">
+                        <table className="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -103,7 +103,7 @@ const HomeUser = () => {
                                             <td colSpan={1}>{item.asunto}</td>
                                             <td>
                                                 <span
-                                                    class={`badge text-bg-${
+                                                    className={`badge text-bg-${
                                                         item.nombre_estado ==
                                                         "SIN RESPUESTA"
                                                             ? "warning"

@@ -1,6 +1,6 @@
 import moment from "moment"
 import React from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { downloadDocument, responseRequest } from "../../lib/Api"
 import { useForm } from "react-hook-form"
 import { toast } from "react-toastify"
@@ -11,6 +11,8 @@ const ResponseToRequest = () => {
     const data = location.state || {}
 
     const infoUser = JSON.parse(localStorage.getItem('infoUser'));
+
+    const navigate = useNavigate()
 
     const {
         register,
@@ -23,7 +25,9 @@ const ResponseToRequest = () => {
             const dataValues = {
                 mensaje: values.message,
                 id_usuario: infoUser?.id,
-                id_documento: data?.id
+                id_documento: data?.id,
+                nombre_usuario: data?.nombre_usuario,
+                email_usuario: data?.email_usuario,
             }
 
             const response = await responseRequest(dataValues)
@@ -39,7 +43,7 @@ const ResponseToRequest = () => {
     })
 
     return (
-        <div className="d-flex justify-content-center align-items-center mt-5">
+        <div className="d-flex justify-content-center align-items-center mt-3">
             <div className="card bg-dark text-white" style={{ width: "27rem" }}>
                 <h4 className="card-header">Responder solicitud</h4>
                 <div className="card-body">

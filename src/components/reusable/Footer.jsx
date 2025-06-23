@@ -1,25 +1,29 @@
 import React from "react"
-import { FaFacebook } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa"
+import { FaWhatsapp } from "react-icons/fa"
+import { FaInstagram } from "react-icons/fa"
 
 const Footer = () => {
     return (
-        <footer class="bg-dark text-center text-white">
-            <div class="container p-3">
-                <section class="mb-4">
+        <footer className="bg-dark text-center text-white">
+            <div className="container p-3">
+                <section className="mb-4">
                     <a
-                        class="btn btn-success btn-floating m-1"
-                        style={{ backgroundColor: "#198754" }} 
-                        href="#!"
+                        className="btn btn-success btn-floating m-1"
+                        style={{ backgroundColor: "#198754" }}
+                        href="https://wa.me/573148099989"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <FaWhatsapp />
                     </a>
 
                     <a
-                        class="btn btn-dark btn-floating m-1"
+                        className="btn btn-dark btn-floating m-1"
                         style={{ backgroundColor: "#dd4b39" }}
-                        href="#!"
+                        href="https://www.instagram.com/radicaya7?igsh=aGhhaWZxaTYzdnAz"
+                        target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <FaInstagram />
                     </a>
@@ -27,11 +31,11 @@ const Footer = () => {
             </div>
 
             <div
-                class="text-center p-3"
+                className="text-center p-3"
                 style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
             >
-                © 2025 Copyright: {" "}
-                <a class="text-white" href="#!">
+                © 2025 Copyright:{" "}
+                <a className="text-white" href="#!">
                     Radicaya
                 </a>
             </div>
