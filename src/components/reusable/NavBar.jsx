@@ -14,7 +14,7 @@ const NavBar = () => {
         toast.success("Sesion cerrada correctamente.", { theme: "colored" })
 
         setTimeout(() => {
-            navigate("/")
+            navigate("/login")
         }, 1000)
     }
 

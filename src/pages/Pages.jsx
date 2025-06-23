@@ -9,11 +9,13 @@ import HomeUser from "../components/Views/HomeUser"
 import Home from "../components/Views/Home"
 import ResponseToRequest from "../components/Views/ResponseToRequest"
 import Users from "../components/Views/Users"
+import Welcome from "../components/Views/Welcome"
 
 const Pages = () => {
     return (
         <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Welcome />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Registro />} />
             <Route
                 element={

@@ -71,7 +71,7 @@ const RadicarDocumento = () => {
     })
 
     return (
-        <div className="d-flex justify-content-center align-items-center mt-5">
+        <div className="d-flex justify-content-center align-items-center mt-3">
             <div className="card bg-dark text-white" style={{ width: "20rem" }}>
                 <h4 className="card-header">
                     {data.id ? "Editar solicitud" : "Radicar solicitud"}

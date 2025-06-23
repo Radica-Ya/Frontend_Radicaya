@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Loader from "../reusable/Loader"
-import { listUsers } from "../../lib/Api"
+import { changeRoleUser, listUsers } from "../../lib/Api"
 import { toast } from "react-toastify"
 
 const Users = () => {
@@ -33,9 +33,19 @@ const Users = () => {
         }
     }
 
-    useEffect(() => {
-        getListUsers()
-    }, [])
+    const changeRole = async (userId) => {
+        try {
+            const response = await changeRoleUser(userId)
+
+            if (response?.result) {
+                toast.success("Rol cambiado correctamente", { theme: "colored" })
+                getListUsers()
+            }
+        } catch (error) {
+            console.log("Error al cambiar el rol", error)
+            toast.error("Error al cambiar el rol", { theme: "colored" })
+        }
+    }
 
     const handleChangeRole = async (userId) => {
         const confirmed = window.confirm(
@@ -44,13 +54,17 @@ const Users = () => {
 
         if (confirmed) {
             try {
-                console.log(userId)
+                changeRole(userId)
             } catch (error) {
                 console.log("Error al cambiar el rol", error)
-                toast.error("Error al cambiar el rol", { theme: "colored" })
             }
         }
     }
+
+    useEffect(() => {
+        getListUsers()
+    }, [])
+
 
     if (loading) {
         return <Loader />

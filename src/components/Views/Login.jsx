@@ -40,7 +40,7 @@ const Login = () => {
                     className="card bg-dark text-white"
                     style={{ width: "20rem" }}
                 >
-                    <h4 className="card-header">Iniciar Sesión</h4>
+                    <h4 className="card-header">Radicaya - Iniciar Sesión</h4>
                     <div className="card-body">
                         <form onSubmit={onSubmit}>
                             <div className="mb-4">

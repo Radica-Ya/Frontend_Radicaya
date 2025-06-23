@@ -21,7 +21,7 @@ const Formulario = () => {
 
             if (submit) {
                 toast.success("Registro Exitoso", { theme: "colored" })
-                redireccion("/")
+                redireccion("/login")
             }
         } catch (error) {
             console.log("Se produjo un error al registrar el usuario", error)
@@ -184,7 +184,7 @@ const Formulario = () => {
                     </div>
                     <div className="card-footer d-flex justify-content-center align-items-center">
                         <Link
-                            to="/"
+                            to="/login"
                             className="link-opacity-50-hover link-light"
                         >
                             Ir a inicio de sesión.

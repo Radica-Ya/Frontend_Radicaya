@@ -57,6 +57,12 @@ export const listUsers = async () => {
     return response.data;
 }
 
+export const changeRoleUser = async (userId) => {
+    const response = await axios.put(`${url_backend}/change-rol/${userId}`);
+
+    return response.data;
+}
+
 export const responseRequest = async (data) => {
     const response = await axios.post(`${url_backend}/response-request`, data);
 
